@@ -10,14 +10,15 @@ public class MonitorJSONParser {
         try {
 
             JSONArray jsonArray = new JSONArray(content);
-            List<Monitor> produtoList = new ArrayList<>();
+            List<Monitor> monitorList = new ArrayList<>();
             for (int i = 0; i< jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Monitor monitor = new Monitor();
                 monitor.setRa(jsonObject.getString("raMonitor"));
                 monitor.setNome(jsonObject.getString("nome"));
+                monitorList.add(monitor);
             }
-            return produtoList;
+            return monitorList;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
