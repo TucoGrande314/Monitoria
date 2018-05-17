@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/iniciar_tarefa"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:icon="@android:drawable/ic_menu_revert"
         android:title="Iniciar"
         app:showAsAction="always" />
 </menu>

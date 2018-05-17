@@ -30,6 +30,7 @@ public class Horario{
     public void setDia(DayOfWeek dia){
         this.dia = dia;
     }
+    public void setDia(int dia){this.dia = DayOfWeek.values()[dia-1];}
     public void setHorario(Date horario){
         this.horario = horario;
     }

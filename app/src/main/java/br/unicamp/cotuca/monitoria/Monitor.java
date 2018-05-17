@@ -1,6 +1,8 @@
 package br.unicamp.cotuca.monitoria;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by u16167 on 16/05/2018.
@@ -9,14 +11,14 @@ import java.util.LinkedList;
 public class Monitor {
     String ra;
     String nome;
-    LinkedList<Horario> horarios;
+    List<Horario> horarios;
 
     public Monitor(){
-        horarios = new LinkedList<Horario>();
+        horarios = new ArrayList<Horario>();
     }
 
     public Monitor(String ra, String nome){
-        horarios = new LinkedList<Horario>();
+        horarios = new ArrayList<Horario>();
         this.ra = ra;
         this.nome = nome;
     }
@@ -26,14 +28,11 @@ public class Monitor {
     public String getNome(){
         return this.nome;
     }
+    public List<Horario> getHorarios(){return horarios;}
     public void setRa(String ra){
         this.ra = ra;
     }
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-    public void add(Horario h){
-        horarios.add(h);
-    }
+    public void setNome(String nome){this.nome = nome;}
+    public void setHorarios(List horarios){this.horarios = horarios;}
 
 }

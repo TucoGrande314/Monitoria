@@ -1,10 +1,12 @@
 package br.unicamp.cotuca.monitoria;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.net.ConnectivityManager;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     ListView    listView;
-    List<Monitor> monitoresList;
+    ArrayList<Monitor> monitoresList;
     static final String root = "http://177.220.18.71:18000/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +100,18 @@ public class MainActivity extends AppCompatActivity {
         if (monitoresList != null){
             final ListaMonitorAdapter monitoresAdapter = new ListaMonitorAdapter(this,monitoresList);
             listView.setAdapter(monitoresAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+                {
+                    Intent intent = new Intent(MainActivity.this,listarHorarios.class);
+                    Bundle params = new Bundle();
+                    params.putString("ra", (monitoresList.get(i).getRa()));
+                    params.putString("nome", (monitoresList.get(i).getNome()));
+                    intent.putExtras(params);
+                    startActivity(intent);
+                }
+            });
             listView.setVisibility(View.VISIBLE);
         }
         else{
